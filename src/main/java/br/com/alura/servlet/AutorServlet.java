@@ -28,7 +28,7 @@ public class AutorServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		req.setAttribute("autores", Util.convertAutorToDTO(autorDAO.getAll()));
+		req.setAttribute("autores", autorDAO.getAll());
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/jsp/autores.jsp");
 		requestDispatcher.forward(req, resp);
 		

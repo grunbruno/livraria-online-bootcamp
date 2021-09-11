@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -50,7 +51,10 @@
 				<tr>
 					<td>${a.nome}</td>
 					<td>${a.email}</td>
-					<td>${a.dataNascimento}</td>
+					<td>
+						<fmt:parseDate value="${a.dataNascimento}" pattern="yyyy-MM-dd" var="formatada" type="date" />
+						<fmt:formatDate value="${formatada}" pattern="dd/MM/yyyy" type="date"/>	
+					</td>
 					<td>${a.miniCurriculo}</td>
 				</tr>
 			</c:forEach>
